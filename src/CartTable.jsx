@@ -12,17 +12,13 @@ function CartTable({ items }) {
         </tr>
       </thead>
       <tbody>
-        {items.map((item) => (
-          <tr className="cart-row" key={item.id}>
+        {items.map(({ id, imageSrc, imageAlt, title, price }) => (
+          <tr key={id} className="cart-row">
             <td>
-              <img
-                className="product-thumb"
-                src={item.imageSrc}
-                alt={item.imageAlt}
-              />
+              <img className="product-thumb" src={imageSrc} alt={imageAlt} />
             </td>
-            <td>{item.title}</td>
-            <td>${item.price}</td>
+            <td>{title}</td>
+            <td>${price}</td>
           </tr>
         ))}
       </tbody>
